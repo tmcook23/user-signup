@@ -83,7 +83,10 @@ def validate_signup():
         if len(email) < 3 or len(email) > 20:
             email_error = 'Enter a valid email (3-20 characters).'
             email = email
-        elif '@' and '.' not in email:
+        elif '@' not in email:
+            email_error = 'Enter a valid email.'
+            email = email
+        elif '.' not in email:
             email_error = 'Enter a valid email.'
             email = email
         # The criteria for a valid email address in this assignment are that it has a single @, a single ., contains no spaces, and is between 3 and 20 characters long.
