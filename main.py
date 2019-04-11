@@ -95,20 +95,16 @@ def validate_signup():
         username = username
         return redirect('/welcome?username={0}'.format(username))
     else:
-        return form.format(username_error=username_error, password_error=password_error, verify_password_error=verify_password_error, email_error=email_error, username=username, password=password, verify_password=verify_password, email=email) # FROM EXAMPLE: hours=hours, minutes=minutes
+        return form.format(username_error=username_error, password_error=password_error, verify_password_error=verify_password_error, email_error=email_error, username=username, password=password, verify_password=verify_password, email=email) #FROM EXAMPLE: hours=hours, minutes=minutes, etc.
 
 
 # Creating an HTTP Redirect (must import redirect):
 
-# My version
 @app.route("/welcome")
 def welcome():
-    #username = request.form['username']
-    #request.form gets stuff from the body of the request (post request)
+    #username = request.form['username'] #request.form gets stuff from the body of the request (post request)
     #return '<h1>Welcome, ' + username + '!</h1>'
-    #Prep Work version:
-    username = request.args.get('username')
-    #args.get gets stuff from the query parameter
+    username = request.args.get('username') #args.get gets stuff from query parameter
     return '<h1>Welcome, {0}!</h1>'.format(username)
 
 app.run()
