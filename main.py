@@ -25,7 +25,7 @@ def validate_signup():
     if username == '':
         username_error = 'Enter a username.'
         username = username
-    elif ' ' in username: # IF USERNAME CONTAINS A SPACE:
+    elif ' ' in username: # If username contains a space:
         username_error = 'Usernames cannot contain spaces. Enter a valid username.'
         username = username
     elif len(username) < 3 or len(username) > 20:
@@ -34,7 +34,7 @@ def validate_signup():
     
     if password == '':
         password_error = 'Enter a password.'
-    elif ' ' in password: # IF PASSWORD CONTAINS A SPACE:
+    elif ' ' in password: # If password contains a space:
         password_error = 'Passwords cannot contain spaces. Enter a valid password.'
     elif len(password) < 3 or len(password) > 20:
         password_error = 'Enter a valid password (3-20 characters).'
@@ -56,8 +56,7 @@ def validate_signup():
 
     if not username_error and not password_error and not verify_password_error and not email_error:
         username = username
-        return render_template('welcome.html', username=username)
-        #return redirect('/welcome?username={0}'.format(username))
+        return redirect('/welcome?username={0}'.format(username))
     else:
         return render_template('home.html', username_error=username_error, password_error=password_error, verify_password_error=verify_password_error, email_error=email_error, username=username, password=password, verify_password=verify_password, email=email)
 
@@ -65,10 +64,8 @@ def validate_signup():
 
 @app.route("/welcome")
 def welcome():
-    username = request.form['username'] #request.form gets stuff from the body of the request (post request)
-    #return '<h1>Welcome, ' + username + '!</h1>'
-    #username = request.args.get('username') #args.get gets stuff from query parameter
-    #return .format(username)
+    username = request.args.get('username') # args.get gets stuff from query parameter
+    # return .format(username)
     return render_template('welcome.html', username=username)
 
 app.run()
