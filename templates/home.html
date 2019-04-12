@@ -1,12 +1,7 @@
-<!doctype html>
-<html>
-    <style>
-        .error { color: red; }
-    </style>
-    <head>
-        <h1>Signup</h1>
-    </head>
-    <body>
+{% extends "base.html" %}
+{% block content %}
+    <title>Signup</title>
+    <h1>Signup</h1>
         <form method="POST">
             <label for= "username">Username</label>
             <input name="username" id="username" type="text" value='{{username}}' /> <span class = "error">{{username_error}}</span>
@@ -26,10 +21,5 @@
             <br>
             <input type="submit" /> 
         </form>
-    </body>
-    <footer>
-        <p>Form created by: Tracy Cook</p>
-        <p>April 11, 2019</p>
-        <p>LC101 User-Signup</p>
-    </footer>
-</html>
+ 
+{% endblock %}
