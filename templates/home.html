@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <style>
+        .error { color: red; }
+    </style>
+    <head>
+        <h1>Signup</h1>
+    </head>
+    <body>
+        <form method="POST">
+            <label for= "username">Username</label>
+            <input name="username" id="username" type="text" value='{{username}}' /> <span class = "error">{{username_error}}</span>
+            <br>
+            <br>
+            <label for= "password">Password</label>
+            <input name="password" id="password" type="password" /> <span class = "error">{{password_error}}</span>
+            <br>
+            <br>
+            <label for= "verify_password">Verify Password</label>
+            <input name="verify_password" id="verify_password" type="password" /> <span class = "error">{{verify_password_error}}</span>
+            <br>
+            <br>
+            <label for= "email">Email (optional)</label>
+            <input name="email" id="email" type="text" value='{{email}}' /> <span class = "error">{{email_error}}</span>
+            <br>
+            <br>
+            <input type="submit" /> 
+        </form>
+    </body>
+    <footer>
+        <p>Form created by: Tracy Cook</p>
+        <p>April 7, 2019</p>
+        <p>LC101 User-Signup</p>
+    </footer>
+</html>
